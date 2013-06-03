@@ -1,0 +1,75 @@
+<html>
+  <head>
+  <title>Cut-off marks</title>
+      <object id="mtable" classid="CLSID:333C7BC4-460F-11D0-BC04-0080C7055A83">
+          <param name="DataURL" value="cuttable.txt"></param>
+          <param name="UseHeader" value="TRUE"></param>
+	  <param name="FieldDelim" value="|"></param>
+          <param name="TextQualifier" value="!"></param>
+      </object> 
+      <style type="text/css">
+        h1 {font-family:CopperPlate Gothic Bold;color:maroon;font-Size:46}
+      </style>
+
+      <script type="text/javascript">
+         
+      var cval=1,bval="ce";
+
+      function getcval(val)
+      {
+          cval=val;
+      }
+
+      function getbval(val)
+      {
+          bval=val;
+      }
+
+      function update(mode)
+      {
+          if(mode==2)
+          {
+             mtable.Filter="srno="+cval;
+          }
+          else if(mode==3)
+          {
+             mtable.Filter="branch="+bval;
+          }
+          mtable.Reset();
+      }
+
+      </script>
+  </head>
+  <body bgcolor="#ffe4b5">
+  <h1>CUT -OFF MARKS</h1>
+  <hr>
+  <h4>Please select the college<h4>
+  <select id="college" onchange="getcval(this.value)">
+     <option value="1">Nirma</option>
+     <option value="2">L.D. College</option>
+     <option value="3">DDIT</option>
+  </select>
+  <input type="button" value="Search college" onclick="update(2)">
+
+  <h4>Please select a branch</h4>
+  <select id="branch" onchange="getbval(this.value)">
+      <option value="ce">ce</option>
+      <option value="it">it</option>
+  </select>
+  <input type="button" value="search branch" onclick="update(3)">
+  <br>
+  <br>
+  <table datasrc="#mtable" border="1">
+      <thead>
+         <td>College</td>
+         <td>Branch</td>
+         <td>Cut-off Marks</td>
+      </thead>
+      <tr>
+          <td><span datafld="cname"></span></td>
+          <td><span datafld="branch"></span></td>
+          <td><span datafld="mark"></span></td>
+      </tr>
+  </table>
+  </body>
+</html>

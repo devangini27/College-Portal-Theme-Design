@@ -1,0 +1,57 @@
+<html>
+<head>
+<title>
+PDF page
+</title>
+  <style type="text/css">
+    h1 {font-family:CopperPlate Gothic Bold;color:maroon;font-Size:46}
+  </style>
+  <object id="book" classid="CLSID:333C7BC4-460F-11D0-BC04-0080C7055A83">
+          <param name="DataURL" value="books.txt"></param>
+          <param name="UseHeader" value="TRUE"></param>
+	  <param name="FieldDelim" value="|"></param>
+          <param name="TextQualifier" value="!"></param>
+  </object> 
+  <script>
+     function update(val)
+     {
+          if(val==1)
+          {
+             book.Filter="branch=ce";
+          }
+          else if(val==2)
+          {
+             book.Filter="branch=ee";
+          }
+          else
+          {
+              book.Filter="";
+          }
+          book.Reset();
+     }
+  </script>
+</head>
+
+<body bgcolor="#ffe4b5">
+  <h1>SEARCH PDF& EBOOKS</h1>
+  <hr>
+  <p>Please select a branch</p>
+  <select onchange="update(this.value)">
+    <OPTION VALUE="1">CE</OPTION>
+    <OPTION VALUE="2">EE</OPTION>
+    <OPTION VALUE="3">ALL</OPTION>
+  </select><br>
+  <br>
+  <br>
+  <table datasrc="#book" border="1">
+     <thead>
+          <td>Branch</td>
+          <td>Name</td>
+     </thead>
+     <tr>
+          <td><span datafld="branch"></span></td>
+          <td><a datafld="link"><span datafld="name"></span></a></td>
+     </tr>
+  </table>
+</body>
+</html>

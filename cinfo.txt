@@ -1,0 +1,4 @@
+!srno!|!cname!|!email!|!add!|!pno!|!stud!|!rank!|!year!|!trans!|!host!|!exam!|!acacal!|!course!|!locx!|!locy!
+!1!|!Nirma Institute of Technology!|!nirmauni@gmail.com!|!S.G. Highway,Ahemdabad!|!(02717)324232!|!1323443!|!2!|!1993!|!Ahmedabad,Gandhinagar!|!For M.Tech students only!|!!|!!|!!|!180!|!180!
+!2!|!L.D. College!|!ldcollege@gmail.com!|!Ahmedabad!|!9342424582!|!6346454!|!5!|!1960!|!NA!|!Yes!|!!|!!|!!|!400!|!400!
+!3!|!U.V.Patel!|!info.uvpce@ganpat.ac.in!|!Mehsana-Gozaria Highway!|!(02762)286805!|!352523!|!34!|!1994!|!Ahmedabad,Mehsana!|!Yes!|!!|!!|!300!|!300!

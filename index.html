@@ -1,0 +1,319 @@
+<html>
+   <head>
+      <title>
+          Portal
+      </title>
+      <object id="infoc1" classid="CLSID:333C7BC4-460F-11D0-BC04-0080C7055A83">
+          <param name="DataURL" value="cinfo.txt"></param>
+          <param name="UseHeader" value="TRUE"></param>
+	  <param name="FieldDelim" value="|"></param>
+          <param name="TextQualifier" value="!"></param>
+      </object> 
+      <object id="monthcal" classid="CLSID:333C7BC4-460F-11D0-BC04-0080C7055A83">
+         <param name="DataURL" value="cal.txt">
+         <param name="UseHeader" value="TRUE">
+         <param name="FieldDelim" value="|">
+         <param name="TextQualifier" value="!">
+      </object>
+
+      <style type="text/css">
+          li {font-family:Times New Roman}
+          table {font-family:Times New Roman}
+          span.k {color:#fa3432} 
+          h1 {font-family:CopperPlate Gothic Bold;color:maroon;font-Size:46}
+          h3,b,label {font-family:Lucida Console;color:indigo}
+      </style>
+
+      <script type="text/javascript">
+
+         var record=infoc1.recordset;
+         var mno;
+         
+         function changec(name)
+         {
+             infoc1.Filter="srno="+name;
+             infoc1.Reset();
+         }
+         
+
+         function loadcal(no)
+         {
+              monthcal.Filter="monthno="+no;
+              mno=no;
+              monthcal.Reset();      
+         }
+ 
+         function getp()
+         {
+             var str;
+             var entry=pwd1.value;
+             if(entry=="Admin")
+             {
+               str=window.prompt("Password",entry);
+               if(str=="Admin")
+               {
+                 //code to perform necessary actions
+               }
+               else
+               {
+                 window.alert("Wrong Password");
+               }
+             }
+             else if(entry.innerText=="Staff")
+             {
+                str=window.prompt("Password");
+               if(str=="Staff")
+               {
+                 //code to perform necessary actions
+               }
+               else
+               {
+                 window.alert("Wrong Password");
+               }
+             }
+             else
+             {
+                window.alert("Unauthorized Person");
+             }
+         }
+      </script>
+   </head>
+   <body bgcolor="#ffe4b5" onload="changec(1);loadcal(3)">
+     <div style="height:60;position:absolute;top:0px;text-align:center">
+         <h1>Engineering Colleges of Gujarat</h1><hr>
+     </div>
+     
+     <div style="height:40;width:100;position:absolute;top:110;left:5">
+        <input type="text" size="15">
+        <input type="button" value="Search">
+     </div>
+
+     <div style="height:300;width:120;position:absolute;top:165;left:5">
+        <a href="r1.html">Free e-books & pdfs</a>
+        <br>
+        <a href="mailto:admin@gmail.com">Any comments?</a>
+        <br>
+        <br>
+        <input id="pwd1" type="text" size="15">
+        <input type="button" value="login" onclick="getp()">
+
+     </div>
+     
+     <div style="width:118;background-color:1e90ff;position:absolute;top:300;left:5">
+        <b size="18">Top Ten Colleges of Gujarat</b>
+        <ol type="1">
+          <li>DAIICT</li>
+          <li>Nirma</li>
+          <li>DDIT</li>
+          <li>GCET</li>
+          <li>LD Engg</li>
+          <li>GCEG</li>
+          <li>MSU</li>
+          <li>GECM</li>
+          <li>CAET</li>
+          <li>SVNIT</li>
+        </ol>
+     </div>
+    
+     <img src="images/gujarat.bmp" style="position:absolute;top:110;left:125;height:400;width:440" border="1">
+     <div style="background-color:#fa3432;position:absolute;top:110;left:568">
+        
+        <table datasrc="#infoc1" style="border-style:ridge;border-color:darkseagreen;width:240;height:300">
+        <th><h3>Info</h3></th>
+        <tr>
+          <td>Name:</td>
+          <td><span datafld="cname"></span></td>
+        </tr>
+        <tr>
+           <td>Email id:</td>
+           <td><a datafld="email"><span datafld="email"></span></a></td>
+        </tr>
+        <tr>
+           <td>Address:</td>
+           <td><span datafld="add"></span></td>
+        </tr>
+        <tr>
+           <td>Contact No:</td>
+           <td><span datafld="pno"></span></td>
+        </tr>
+        <tr>
+            <td>No. of existing students</td>
+            <td><span datafld="stud"></span></td>
+        </tr>
+        <tr>
+           <td>Rank</td>
+           <td><span datafld="rank"></span></td>
+        </tr>
+        <tr>
+           <td>Year of establishment</td>
+           <td><span datafld="year"></span></td>
+        </tr>
+        <tr>
+           <td>Transport Facility</td>
+           <td><span datafld="trans"></span></td>
+        </tr>
+        <tr>
+            <td>Hostel Facility</td>
+            <td><span datafld="host"></span></td>
+        <tr>
+            <td colspan="2"><a href="cut.html">Cut-off marks list</a></td> 
+        </tr>
+        <tr>
+           <td colspan="2"><a datafld="exam">Exam schedule</a><span datafld="locx" id="locx" class="k"></span></td> 
+        </tr>
+        <tr>
+           <td colspan="2"><a datafld="acacal">Academic Calender</a></span></td>
+        </tr>
+        <tr>
+            <td colspan="2"><a datafld="course" href="cut.html">Course Content</a><span id="locy" datafld="locy" class="k"></span></td>
+        </tr>
+        </table>
+     </div>
+     <div style="position:absolute;width:280;heigth:70;top:450;left:160"> 
+         List of Colleges<br>
+         <select onchange="changec(this.value)">
+            <option value="1">Nirma</option>
+            <option value="2">L.D.</option>
+            <option value="3">U.V. Patel</option>
+         </select>
+         
+         &nbsp;&nbsp;&nbsp;&nbsp;
+         <input type="button" value="Go college">
+     </div>
+     <div style="position:absolute;width:80;height:100;top:100;left:820">
+       <h3>Activities Calender</h3>
+       <label id="month">March</label>
+        <table datasrc="#monthcal" bgcolor="hotpink">
+          <tr>
+              <td> M</td>
+              <td> T</td>
+              <td> W</td>
+              <td> T</td>
+              <td> F</td>
+              <td> S</td>
+              <td> S</td>
+          </tr>
+          <tr><td datafld="day1">1</td>
+              <td datafld="day2">2</td>
+              <td datafld="day3">3</td>
+              <td datafld="day4">4</td>
+              <td datafld="day5">5</td>
+              <td datafld="day6">6</td>
+              <td datafld="day7">7</td>
+          </tr>
+          <tr><td datafld="day8">8</td>  
+              <td datafld="day9">9</td>
+              <td datafld="day10">10</td> 
+              <td datafld="day11">11</td> 
+              <td datafld="day12">12</td>
+              <td datafld="day13">13</td> 
+              <td datafld="day14">14</td>
+          </tr>
+          <tr>
+              <td datafld="day15">15</td>
+              <td datafld="day16">16</td>
+              <td datafld="day17">17</td>
+              <td datafld="day18">18</td>
+              <td datafld="day19">19</td>
+              <td datafld="day20">20</td>
+              <td datafld="day21">21</td>
+          </tr>
+          <tr>
+              <td datafld="day22">22</td>
+              <td datafld="day23">23</td>
+              <td datafld="day24">24</td>
+              <td datafld="day25">25</td>
+              <td datafld="day26">26</td>
+              <td datafld="day27">27</td>
+              <td datafld="day28">28</td>
+          </tr>
+          <tr>
+              <td datafld="day29">29</td>
+              <td datafld="day30">30</td>
+              <td datafld="day31">31</td>
+              <td datafld="day32"></td>
+              <td datafld="day33"></td>
+              <td datafld="day34"></td>
+              <td datafld="day35"></td>
+          </tr>
+        </table>  
+     </div>
+
+    <img src="images/nano.bmp" border="1" style="position:absolute;top:600;left:10;width:800;height:80">
+    
+    <b style="position:absolute;top:400;left:850">Events</b>
+    <div style="position:absolute;width:165;height:100;top:450;left:830">
+    <marquee onmouseover="stop()" onmouseout="start()" scrollAmount="1" direction="up">
+         <table datasrc="#events1">
+             <tr>
+                 <td>date:</td>
+                 <td>12</td>
+             </tr>
+             <tr>
+                 <td>event:</td>
+                 <td>CONVERGENCE 2010</td>
+             </tr>
+             <tr>
+                 <td>Venue</td>
+                 <td>U.V Patel Institute of Technology</td>
+             </tr>
+             <tr>
+                 <td colspan="2"><a href="www.convergence.uvpce.ac.in">Link</a></td>
+             </tr>
+             <tr>
+                 <td>date:</td>
+                 <td>11</td>
+             </tr>
+             <tr>
+                 <td>event:</td>
+                 <td>SPARSH</td>
+             </tr>
+             <tr>
+                 <td>Venue:</td>
+                 <td>SVNIT</td>
+             </tr>
+             <tr>
+                 <td colspan="2"><a href="www.svnit.ac.in">Link</a></td>
+             </tr>
+             <tr>
+                 <td>date:</td>
+                 <td>16</td>
+             </tr>
+             <tr>
+                 <td>event:</td>
+                 <td>PREVOYANCE</td>
+             </tr>
+             <tr>
+                 <td>Venue</td>
+                 <td>Nirma Institute of Technology</td>
+             </tr>
+             <tr>
+                 <td colspan="2"><a href="www.nirmauni.ac.in">Link</a></td>
+             </tr>
+             <tr>
+                 <td>date:</td>
+                 <td>19</td>
+             </tr>
+             <tr>
+                 <td>event:</td>
+                 <td>VIDHYUT ADBHUTAM</td>
+             </tr>
+             <tr>
+                 <td>Venue</td>
+                 <td>Nirma Institute of Technology</td>
+             </tr>
+             <tr>
+                 <td colspan="2"><a href="www.nirmauni.ac.in">Link</a></td>
+             </tr>
+
+         </table>
+    </marquee>
+    </div>
+    <div style="position:absolute;width:450;height:50;top:530;left:130">
+       <b>Developed By Devangini Patel (07BCE201) & Riddhi Thakor (08BCE166)<br>
+          Institute of Technology,Nirma University
+       </b>
+    </div>
+    
+    </body>
+</html>

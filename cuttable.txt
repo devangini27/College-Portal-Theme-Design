@@ -1,0 +1,6 @@
+!srno!|!cname!|!branch!|!mark!
+!1!|!Nirma!|!ce!|!219!
+!1!|!Nirma!|!it!|!216!
+!2!|!L.D. College!|!ce!|!205!
+!2!|!L.D. College!|!it!|!207!
+!3!|!DDIT!|!ce!|!202!
